@@ -7,7 +7,7 @@ public class Tugas_2_Pemesanan {
         // deklarasi dan inisialisasi scanner, variable, dan array
         Scanner sc = new Scanner(System.in);
 
-        int itemCount = 0;
+        int itemCount = 0; 
         String[] pesanan = new String[40];
         String inputPesanan;
         char choice;
