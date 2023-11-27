@@ -1,24 +1,38 @@
 import java.util.Scanner;
 
 public class Percobaan310 {
-    
-    static double hitungLaba(double saldo, int tahun) {
-        if (tahun == 0) {
-            return (saldo);
+
+    // Metode untuk menghitung pangkat
+    static int hitungPangkat(int x, int y) {
+        if (y == 0) {
+            return 1;
         } else {
-            return (1.11 * hitungLaba(saldo, tahun - 1));
+            return x * hitungPangkat(x, y - 1);
         }
     }
+
+    // Metode untuk mencetak deret perhitungan pangkat
+    static void cetakDeretPangkat(int x, int y) {
+        if (y == 0) {
+            System.out.print("1");
+        } else {
+            System.out.print(x + "x");
+            cetakDeretPangkat(x, y - 1);
+        }
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        double saldoAwal;
-        int tahun;
-        System.out.print("Jumlah saldo awal : ");
-    saldoAwal = sc.nextInt();
-    System.out.print("Lamanya investasi (tahun) :");
-    tahun = sc.nextInt();
+        int bilangan, pangkat;
+        System.out.print("Masukkan bilangan: ");
+        bilangan = sc.nextInt();
+        System.out.print("Masukkan pangkat: ");
+        pangkat = sc.nextInt();
 
-    System.out.print("Jumlah saldo setelah " + tahun + " tahun : ");
-    System.out.print(hitungLaba(saldoAwal, tahun));
+        System.out.print("Deret perhitungan pangkat " + bilangan + "^" + pangkat + " adalah: ");
+        cetakDeretPangkat(bilangan, pangkat);
+        
+        int hasilPangkat = hitungPangkat(bilangan, pangkat);
+        System.out.println(" = " + hasilPangkat);
     }
 }
